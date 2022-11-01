@@ -1,0 +1,6 @@
+{
+  "manifest_version": 3,
+  "name": "Strict",
+  "description": "Strict is a browser extention that blocks blacklisted web pages",
+  "version": "1.0"
+}
