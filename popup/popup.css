@@ -1,0 +1,39 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --bgc-: '';
+  --text: '';
+  --text-font: '';
+}
+
+body {
+  width: 350px;
+  min-height: 450px;
+}
+
+a {
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header,
+.header-right,
+.header-left {
+  display: flex;
+  align-items: center;
+}
+.header {
+  justify-content: space-between;
+  background-color: aquamarine;
+  padding: 10px;
+}
