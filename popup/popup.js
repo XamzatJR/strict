@@ -1,13 +1,18 @@
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelector('#switcher').addEventListener('change', (event) => {
+const switcher = document.querySelector('#switcher');
+const input = document.querySelector('#input');
+const form = document.querySelector('#form');
+const list = document.querySelector('.list');
+
+document.addEventListener('DOMContentLoaded', async () => {
+  toggleSwitcher(switcher);
+});
+
+function toggleSwitcher(switcher) {
+  switcher.addEventListener('change', (event) => {
     if (event.target.checked) {
-      chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, { isActive: true });
-      });
+      chrome.storage.local.set({ isActive: true });
     } else {
-      chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, { isActive: false });
-      });
+      chrome.storage.local.set({ isActive: false });
     }
   });
-});
+}
