@@ -17,21 +17,35 @@
           <input class="tgl tgl-skewed" id="switcher" type="checkbox" />
           <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="switcher"></label>
         </div>
+        <!-- <button class="theme-toggle" id="theme-toggle" title="Toggles light & dark">
+          <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+            <mask class="moon" id="moon-mask">
+              <rect x="0" y="0" width="100%" height="100%" fill="white" />
+              <circle cx="24" cy="10" r="6" fill="black" />
+            </mask>
+            <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
+            <g class="sun-beams" stroke="currentColor">
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </g>
+          </svg>
+        </button> -->
       </div>
     </header>
     <main class="main">
-      <div class="">
-        <input type="url" placeholder="https://example.com" />
+      <form id="form" action="" class="">
+        <input id="input" type="text" placeholder="https://example.com" />
         <button>Add</button>
-      </div>
+      </form>
       <div class="black-list">
         <h2 class="black-list__title">Black List</h2>
-        <ul class="list">
-          <li class="list__item">youtube.com <span>T</span></li>
-          <li>vtuber.com <span>T</span></li>
-          <li>shikboom.com <span>T</span></li>
-          <li>facebook.com <span>T</span></li>
-        </ul>
+        <ul class="list"></ul>
       </div>
     </main>
     <footer class="footer">
