@@ -13,7 +13,7 @@ form.addEventListener('submit', async (e) => {
   if (!validateInput(input)) return;
   if (!blackList.includes(input.value)) {
     addItem(list, handleURL(input.value));
-    chrome.storage.sync.set({ blackList: [...blackList, input.value] }, () => {
+    chrome.storage.sync.set({ blackList: [...blackList, handleURL(input.value)] }, () => {
       input.value = '';
     });
   } else {
@@ -22,6 +22,15 @@ form.addEventListener('submit', async (e) => {
 });
 document.addEventListener('DOMContentLoaded', async () => {
   const isActive = await chrome.storage.local.get().then((item) => item.isActive);
+  const blackList = await chrome.storage.sync.get().then((store) => {
+    if (!isEmpty(store.blackList)) {
+      return store.blackList;
+    }
+    return [];
+  });
+  for (let i = 0; i < blackList.length; ++i) {
+    addItem(list, blackList[i]);
+  }
   if (isActive) {
     switcher.checked = true;
   }
