@@ -12,6 +12,12 @@ chrome.tabs.onActivated.addListener(() => {
   }, 100);
 });
 
+chrome.storage.onChanged.addListener(({ isActive }) => {
+  if (isActive) {
+    blocker();
+  }
+});
+
 async function blocker() {
   const isActive = await chrome.storage.local.get().then((item) => item.isActive);
   const blackList = await chrome.storage.sync.get().then((store) => {
