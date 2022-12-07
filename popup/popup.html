@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-left">
+        <img class="logo" src="../images/icon-32.png" alt="logo" />
+        <h1 class="title">Strict</h1>
+      </div>
+      <div class="header-right">
+        <div>
+          <input class="tgl tgl-skewed" id="switcher" type="checkbox" />
+          <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="switcher"></label>
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <form id="form" action="#" autocomplete="off" class="form">
+        <input id="input" type="text" placeholder="https://example.com" />
+        <button>Add</button>
+      </form>
+      <div class="black-list">
+        <h2 class="black-list__title">Black List</h2>
+        <ul class="list"></ul>
+      </div>
+    </main>
+    <footer class="footer">
+      <ul class="contacts">
+        <li class="contact"><a href="#">Github</a></li>
+        <li class="contact"><a href="#">Telegram</a></li>
+      </ul>
+    </footer>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
