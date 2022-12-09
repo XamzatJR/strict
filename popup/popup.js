@@ -38,16 +38,23 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 function addItem(list, val) {
   let item = document.createElement('li');
+  let text = document.createElement('div');
+  let icon = document.createElement('img');
   item.classList.add('list__item');
-  item.onclick = deleteItem;
-  item.textContent = val;
+  icon.classList.add('list__item-icon');
+  text.classList.add('list__item-text');
+  icon.src = '../images/delete.png';
+  text.textContent = val;
+  icon.onclick = deleteItem;
+  item.append(text, icon);
   list.append(item);
 }
 async function deleteItem(e) {
   const blackList = await chrome.storage.sync.get().then((store) => store.blackList);
-  const newList = blackList.filter((item) => item !== e.target.innerText);
+  const newList = blackList.filter((item) => item !== e.target.parentNode.firstChild.textContent);
   chrome.storage.sync.set({ blackList: newList });
-  e.target.remove();
+  e.target.parentNode.remove();
+  console.log(e.target.parentNode, e);
 }
 function toggleSwitcher(switcher) {
   switcher.addEventListener('change', (event) => {
