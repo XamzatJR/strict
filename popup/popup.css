@@ -14,6 +14,8 @@
 body {
   width: 350px;
   height: 445px;
+  background-color: #fafafa;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
 a {
@@ -27,8 +29,10 @@ li {
   margin: 0;
 }
 .title {
-  margin-left: 10px;
+  margin-left: 15px;
   color: orangered;
+  letter-spacing: 2px;
+  font-size: 32px;
 }
 .header,
 .header-right,
@@ -39,7 +43,7 @@ li {
 .header {
   justify-content: space-between;
   background-color: var(--bgc);
-  padding: 10px;
+  padding: 5px 20px;
 }
 .footer {
   width: 100%;
@@ -58,32 +62,49 @@ li {
   align-items: center;
   gap: 15px;
 }
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+
+  background: #f2f2f2;
+  border: 2px solid;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.contact img {
+  width: 18px;
+  height: 18px;
+}
+.contact:hover {
+  text-decoration: underline;
+}
 .tg {
-  background-image: url('../images/telegram.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 32px;
-  height: 32px;
-  display: block;
+  border-color: #0a66c2;
+  color: #0a66c2;
 }
 .github {
-  background: url('../images/github.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 32px;
-  height: 32px;
-  display: block;
+  border-color: #222222;
+  color: #222222;
 }
 .black-list {
   max-height: 290px;
+  padding-inline: 20px;
 }
 .black-list__title {
-  padding-left: 20px;
   font-size: 1.25rem;
+  margin-bottom: 8px;
+  font-family: 'Lucida Sans Unicode', 'Segoe UI', Tahoma, sans-serif;
 }
 .list {
   overflow-y: auto;
-  max-height: 250px;
+  max-height: 220px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-right: none;
+  padding-block: 4px;
 }
 .list::-webkit-scrollbar {
   width: 12px;
@@ -91,23 +112,21 @@ li {
 
 .list::-webkit-scrollbar-track {
   background-color: #e4e4e4;
-  border-radius: 40px;
+  border-radius: 12px;
 }
 
 .list::-webkit-scrollbar-thumb {
   background-color: var(--bgc);
-  border-radius: 40px;
+  border-radius: 12px;
 }
 .list__item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 7px 20px;
-  border-bottom: 1px solid #cebbc9;
+  padding: 8px 17px;
   font-size: 13px;
-}
-.list__item:last-child {
-  border: none;
+  font-family: inherit;
+  font-weight: 500;
 }
 .list__item:hover .list__item-icon {
   visibility: visible;
@@ -119,7 +138,7 @@ li {
   visibility: hidden;
 }
 .list__item:hover {
-  background-color: lightgray;
+  background-color: rgba(0, 0, 0, 0.07);
 }
 .form {
   margin-block: 20px 15px;
@@ -127,12 +146,14 @@ li {
 }
 .input {
   width: 100%;
-  padding: 5px;
+  padding: 7px 10px;
   color: #000;
   border-radius: 4px;
   border: 2px solid gainsboro;
   transition: border 0.3s;
   outline: none;
+  font-family: inherit;
+  font-weight: 600;
 }
 .input:active,
 .input:hover {
