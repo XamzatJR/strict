@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Strict",
-  "description": "Strict is a browser extention that blocks blacklisted web pages",
+  "description": "Strict is a blocking websites browser extention.",
   "version": "1.0",
   "action": {
     "default_popup": "./popup/popup.html",
