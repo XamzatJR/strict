@@ -103,7 +103,6 @@ li {
   max-height: 220px;
   background-color: #fff;
   border: 1px solid #e5e5e5;
-  border-right: none;
   padding-block: 4px;
 }
 .list::-webkit-scrollbar {
