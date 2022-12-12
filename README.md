@@ -1,2 +1,2 @@
 # Strict
-Strict is a browser extention that blocks blacklisted web pages
+### Strict is a browser extension designed to block websites
