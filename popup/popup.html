@@ -21,19 +21,24 @@
     </header>
     <main class="main">
       <form id="form" action="#" autocomplete="off" class="form">
-        <input id="input" type="text" placeholder="https://example.com" />
-        <button>Add</button>
+        <input class="input" id="input" type="text" placeholder="https://example.com" />
       </form>
-      <div class="black-list">
+      <section class="black-list">
         <h2 class="black-list__title">Black List</h2>
         <ul class="list"></ul>
-      </div>
+      </section>
     </main>
     <footer class="footer">
-      <ul class="contacts">
-        <li class="contact"><a href="#">Github</a></li>
-        <li class="contact"><a href="#">Telegram</a></li>
-      </ul>
+      <nav class="contacts">
+        <a target="_blink" class="contact github" href="https://github.com/XamzatJR">
+          <img src="../images/github.png" alt="github icon" />
+          / Github
+        </a>
+        <a target="_blink" class="contact tg" href="https://t.me/bichahk">
+          <img src="../images/tg.png" alt="telegram icon" />
+          / Telegram
+        </a>
+      </nav>
     </footer>
     <script type="module" src="popup.js"></script>
   </body>
