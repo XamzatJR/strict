@@ -105,6 +105,8 @@ li {
   background-color: #fff;
   border: 1px solid #e5e5e5;
   padding-block: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--bgc) #e4e4e4;
 }
 .list::-webkit-scrollbar {
   width: 12px;
