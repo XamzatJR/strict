@@ -101,6 +101,7 @@ li {
 .list {
   overflow-y: auto;
   max-height: 220px;
+  min-height: 180px;
   background-color: #fff;
   border: 1px solid #e5e5e5;
   padding-block: 4px;
