@@ -4,7 +4,7 @@ const form = document.querySelector('#form');
 const list = document.querySelector('.list');
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  const blackList = await chrome.storage.sync.get().then((store) => {
+  const blackList = await browser.storage.sync.get().then((store) => {
     if (!isEmpty(store.blackList)) {
       return store.blackList;
     }
@@ -13,7 +13,7 @@ form.addEventListener('submit', async (e) => {
   if (!validateInput(input)) return;
   if (!blackList.includes(input.value)) {
     addItem(list, handleURL(input.value));
-    chrome.storage.sync.set({ blackList: [...blackList, handleURL(input.value)] }, () => {
+    browser.storage.sync.set({ blackList: [...blackList, handleURL(input.value)] }, () => {
       input.value = '';
     });
   } else {
@@ -21,8 +21,8 @@ form.addEventListener('submit', async (e) => {
   }
 });
 document.addEventListener('DOMContentLoaded', async () => {
-  const isActive = await chrome.storage.local.get().then((item) => item.isActive);
-  const blackList = await chrome.storage.sync.get().then((store) => {
+  const isActive = await browser.storage.local.get().then((item) => item.isActive);
+  const blackList = await browser.storage.sync.get().then((store) => {
     if (!isEmpty(store.blackList)) {
       return store.blackList;
     }
@@ -50,18 +50,18 @@ function addItem(list, val) {
   list.append(item);
 }
 async function deleteItem(e) {
-  const blackList = await chrome.storage.sync.get().then((store) => store.blackList);
+  const blackList = await browser.storage.sync.get().then((store) => store.blackList);
   const newList = blackList.filter((item) => item !== e.target.parentNode.firstChild.textContent);
-  chrome.storage.sync.set({ blackList: newList });
+  browser.storage.sync.set({ blackList: newList });
   e.target.parentNode.remove();
   console.log(e.target.parentNode, e);
 }
 function toggleSwitcher(switcher) {
   switcher.addEventListener('change', (event) => {
     if (event.target.checked) {
-      chrome.storage.local.set({ isActive: true });
+      browser.storage.local.set({ isActive: true });
     } else {
-      chrome.storage.local.set({ isActive: false });
+      browser.storage.local.set({ isActive: false });
     }
   });
 }

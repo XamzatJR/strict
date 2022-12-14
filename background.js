@@ -1,26 +1,26 @@
-chrome.runtime.onInstalled.addListener(() => {
-  chrome.storage.sync.get().then((items) => {
+browser.runtime.onInstalled.addListener(() => {
+  browser.storage.sync.get().then((items) => {
     if (!items.blackList) {
-      chrome.storage.sync.set({ blackList: [] });
+      browser.storage.sync.set({ blackList: [] });
     }
   });
 });
 
-chrome.tabs.onActivated.addListener(() => {
+browser.tabs.onActivated.addListener(() => {
   setTimeout(() => {
     blocker();
   }, 100);
 });
 
-chrome.storage.onChanged.addListener(({ isActive }) => {
+browser.storage.onChanged.addListener(({ isActive }) => {
   if (isActive) {
     blocker();
   }
 });
 
 async function blocker() {
-  const isActive = await chrome.storage.local.get().then((item) => item.isActive);
-  const blackList = await chrome.storage.sync.get().then((store) => {
+  const isActive = await browser.storage.local.get().then((item) => item.isActive);
+  const blackList = await browser.storage.sync.get().then((store) => {
     if (!isEmpty(store.blackList)) {
       return store.blackList;
     }
@@ -37,7 +37,7 @@ async function blockPages(blackList) {
     url = new URL(url).host;
     blackList.forEach((el) => {
       if (url.match(el)) {
-        chrome.tabs.update(null, { url: POMO });
+        browser.tabs.update(null, { url: POMO });
       }
     });
   }
@@ -50,6 +50,6 @@ function isEmpty(obj) {
 }
 async function getCurrentUrl() {
   let queryOptions = { active: true, lastFocusedWindow: true };
-  let [tab] = await chrome.tabs.query(queryOptions);
+  let [tab] = await browser.tabs.query(queryOptions);
   return tab.url;
 }
