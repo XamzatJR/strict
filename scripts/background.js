@@ -18,15 +18,23 @@ chrome.storage.onChanged.addListener(({ isActive }) => {
   }
 });
 
+chrome.runtime.onMessage.addListener(async (request) => {
+  if (request.block) {
+    const blackList = await chrome.storage.sync.get().then((store) => store.blackList);
+    blockPages(blackList);
+  }
+});
+
 async function blocker() {
   const isActive = await chrome.storage.local.get().then((item) => item.isActive);
-  const blackList = await chrome.storage.sync.get().then((store) => {
-    if (!isEmpty(store.blackList)) {
-      return store.blackList;
-    }
-    return [];
-  });
+
   if (isActive) {
+    const blackList = await chrome.storage.sync.get().then((store) => {
+      if (!isEmpty(store.blackList)) {
+        return store.blackList;
+      }
+      return [];
+    });
     blockPages(blackList);
   }
 }
